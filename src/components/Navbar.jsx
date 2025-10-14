@@ -26,7 +26,7 @@ const Navbar = () => {
             </span>
           </div> */}
 
-                    <a href=""><img src="src/assets/codex logo (1).png" alt="" width={180} /></a>
+                    <a href=""><img src="/codex_logo.png" alt="" width={180} /></a>
 
                     {/* Centered Navigation Links - Desktop */}
                     <div className="hidden md:flex items-center justify-center flex-1">
