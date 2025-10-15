@@ -29,19 +29,22 @@ const Contact = () => {
       icon: Mail,
       title: 'Email Us',
       content: 'hello@techsolutions.com',
-      description: 'Send us an email anytime'
+      description: 'Send us an email anytime',
+      color: 'text-orange-500'
     },
     {
       icon: Phone,
       title: 'Call Us',
       content: '+1 (555) 123-4567',
-      description: 'Mon-Fri from 9am to 6pm EST'
+      description: 'Mon-Fri from 9am to 6pm EST',
+      color: 'text-orange-500'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
       content: '123 Tech Street, Suite 100',
-      description: 'San Francisco, CA 94105'
+      description: 'San Francisco, CA 94105',
+      color: 'text-orange-500'
     }
   ]
 
@@ -50,7 +53,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get In Touch
+            Get In <span className="text-orange-500">Touch</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to transform your business? Let's discuss your project requirements 
@@ -69,12 +72,12 @@ const Contact = () => {
               {contactInfo.map((item, index) => {
                 const IconComponent = item.icon
                 return (
-                  <div key={index} className="flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                    <div className="bg-blue-100 p-3 rounded-lg flex-shrink-0">
-                      <IconComponent className="h-6 w-6 text-blue-600" />
+                  <div key={index} className="flex items-start space-x-4 p-4 rounded-xl hover:bg-orange-50 transition-colors group cursor-pointer">
+                    <div className={`bg-orange-100 p-3 rounded-lg flex-shrink-0 group-hover:bg-orange-500 transition-colors`}>
+                      <IconComponent className={`h-6 w-6 ${item.color} group-hover:text-white transition-colors`} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 text-lg">{item.title}</h4>
+                      <h4 className="font-semibold text-gray-900 text-lg group-hover:text-orange-600 transition-colors">{item.title}</h4>
                       <p className="text-gray-600 font-medium">{item.content}</p>
                       <p className="text-sm text-gray-500 mt-1">{item.description}</p>
                     </div>
@@ -86,7 +89,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -100,7 +103,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                       placeholder="Your full name"
                     />
                   </div>
@@ -115,7 +118,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                       placeholder="your.email@company.com"
                     />
                   </div>
@@ -132,7 +135,7 @@ const Contact = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                       placeholder="Your company name"
                     />
                   </div>
@@ -147,7 +150,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                       placeholder="What is this regarding?"
                     />
                   </div>
@@ -164,14 +167,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none outline-none"
                     placeholder="Tell us about your project requirements, timeline, and budget..."
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   <Send className="h-5 w-5 mr-2" />
                   Send Message

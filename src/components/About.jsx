@@ -26,13 +26,13 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Leading Digital Innovation Since 2018
+              Leading Digital Innovation <span className="text-orange-500">Since 2018</span>
             </h2>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -48,20 +48,20 @@ const About = () => {
             </p>
 
             <div className="grid grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
+              <div className="text-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-3xl font-bold text-orange-600 mb-2">5+</div>
                 <div className="text-gray-600 font-medium">Years Experience</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
                 <div className="text-gray-600 font-medium">Team Members</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+              <div className="text-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-3xl font-bold text-orange-600 mb-2">15+</div>
                 <div className="text-gray-600 font-medium">Industries Served</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">99%</div>
+              <div className="text-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-3xl font-bold text-orange-600 mb-2">99%</div>
                 <div className="text-gray-600 font-medium">Client Retention</div>
               </div>
             </div>
@@ -72,11 +72,11 @@ const About = () => {
             {values.map((value, index) => {
               const IconComponent = value.icon
               return (
-                <div key={index} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 group">
-                  <div className="bg-white p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors shadow-sm">
-                    <IconComponent className="h-6 w-6" />
+                <div key={index} className="bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 group border border-gray-100">
+                  <div className="bg-orange-100 p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-4 group-hover:bg-orange-500 group-hover:text-white transition-colors shadow-sm">
+                    <IconComponent className="h-6 w-6 text-orange-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">{value.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               )

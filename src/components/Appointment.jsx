@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Calendar, Clock, User, Mail } from 'lucide-react'
+import { Calendar, Clock, User, Mail, Building } from 'lucide-react'
 
 const Appointment = () => {
   const [appointmentData, setAppointmentData] = useState({
@@ -49,7 +49,7 @@ const Appointment = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Schedule a Consultation
+            Schedule a <span className="text-orange-500">Consultation</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Book a free 30-minute consultation with our experts to discuss your 
@@ -66,7 +66,7 @@ const Appointment = () => {
                   Full Name *
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-orange-500" />
                   <input
                     type="text"
                     id="appointment-name"
@@ -74,7 +74,7 @@ const Appointment = () => {
                     value={appointmentData.name}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                     placeholder="Your full name"
                   />
                 </div>
@@ -85,7 +85,7 @@ const Appointment = () => {
                   Email Address *
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-orange-500" />
                   <input
                     type="email"
                     id="appointment-email"
@@ -93,7 +93,7 @@ const Appointment = () => {
                     value={appointmentData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                     placeholder="your.email@company.com"
                   />
                 </div>
@@ -101,19 +101,22 @@ const Appointment = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+              <div className="relative">
                 <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
                   Company Name
                 </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={appointmentData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="Your company name"
-                />
+                <div className="relative">
+                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-orange-500" />
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={appointmentData.company}
+                    onChange={handleChange}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
+                    placeholder="Your company name"
+                  />
+                </div>
               </div>
               
               <div>
@@ -126,7 +129,7 @@ const Appointment = () => {
                   value={appointmentData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors outline-none"
                 >
                   <option value="">Select a service</option>
                   {services.map((service, index) => (
@@ -143,7 +146,7 @@ const Appointment = () => {
                   Preferred Date *
                 </label>
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-orange-500" />
                   <input
                     type="date"
                     id="date"
@@ -152,7 +155,7 @@ const Appointment = () => {
                     onChange={handleChange}
                     required
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
                   />
                 </div>
               </div>
@@ -162,14 +165,14 @@ const Appointment = () => {
                   Preferred Time *
                 </label>
                 <div className="relative">
-                  <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-orange-500" />
                   <select
                     id="time"
                     name="time"
                     value={appointmentData.time}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
                   >
                     <option value="">Select a time slot</option>
                     {timeSlots.map((time, index) => (
@@ -190,14 +193,14 @@ const Appointment = () => {
                 value={appointmentData.message}
                 onChange={handleChange}
                 rows="4"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none outline-none"
                 placeholder="Briefly describe your project goals, timeline, and any specific requirements..."
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Schedule Free Consultation
             </button>
